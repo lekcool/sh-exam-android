@@ -10,10 +10,6 @@ import com.lkdev.examandroid.R
 
 class GoalFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = GoalFragment()
-    }
-
     private lateinit var viewModel: GoalViewModel
 
     override fun onCreateView(
@@ -28,5 +24,4 @@ class GoalFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(GoalViewModel::class.java)
         // TODO: Use the ViewModel
     }
-
 }

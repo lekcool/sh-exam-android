@@ -1,12 +1,84 @@
 package com.lkdev.examandroid.data
 
+import androidx.recyclerview.widget.DiffUtil
+import java.text.NumberFormat
+
 data class Goal(
     val id: Int,
     val detail: String,
+    val goal: Int,
+    val currentGoal: Int,
     val status: Status,
     val type: Type,
     val date: String
-)
+) {
+    fun getGoalFormat(): String {
+        val format = NumberFormat.getInstance()
+        return "${format.format(goal)} THB"
+    }
+
+    fun getCurrentGoalFormat(): String {
+        val format = NumberFormat.getInstance()
+        return "${format.format(currentGoal)} THB"
+    }
+
+    companion object {
+        val LIST_MOCK = createMock()
+
+        private fun createMock(): List<Goal> {
+            val list = arrayListOf<Goal>()
+            list.add(
+                Goal(
+                    id = 1,
+                    detail = "ไปเที่ยวญี่ปุ่น",
+                    goal = 20000,
+                    currentGoal = 16500,
+                    status = Status.GOOD,
+                    type = Type.TRAVEL,
+                    date = "45 Days left"
+                )
+            )
+
+            list.add(
+                Goal(
+                    id = 2,
+                    detail = "ซื้อกองทุนรวม",
+                    goal = 6000,
+                    currentGoal = 500,
+                    status = Status.UNHAPPY,
+                    type = Type.INVEST,
+                    date = "20 Days left"
+                )
+            )
+
+            list.add(
+                Goal(
+                    id = 1,
+                    detail = "ไปทะเล",
+                    goal = 10000,
+                    currentGoal = 6500,
+                    status = Status.GOOD,
+                    type = Type.TRAVEL,
+                    date = "10 Days left"
+                )
+            )
+            return list
+        }
+
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Goal?>() {
+            override fun areItemsTheSame(oldItem: Goal, newItem: Goal): Boolean {
+                return oldItem.id == newItem.id
+                        && oldItem.detail == newItem.detail
+                        && oldItem.goal == newItem.goal
+                        && oldItem.currentGoal == newItem.currentGoal
+            }
+
+            override fun areContentsTheSame(oldItem: Goal, newItem: Goal): Boolean {
+                return oldItem == newItem
+            }
+        }
+    }
+}
 
 enum class Type {
     TRAVEL, EDUCATION, INVEST, CLOTHING

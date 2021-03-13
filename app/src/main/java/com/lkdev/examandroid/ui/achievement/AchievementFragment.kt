@@ -16,12 +16,11 @@ class AchievementFragment : Fragment() {
     private lateinit var achievementViewModel: AchievementViewModel
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
-        achievementViewModel =
-                ViewModelProvider(this).get(AchievementViewModel::class.java)
+        achievementViewModel = ViewModelProvider(this).get(AchievementViewModel::class.java)
         return inflater.inflate(R.layout.fragment_achievement, container, false)
     }
 

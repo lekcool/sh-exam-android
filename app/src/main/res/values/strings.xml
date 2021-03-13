@@ -4,4 +4,5 @@
     <string name="title_wallet">Wallet</string>
     <string name="title_achievement">Achievement</string>
     <string name="title_profile">Profile</string>
+    <string name="button_new_goal">+ New Goal</string>
 </resources>
