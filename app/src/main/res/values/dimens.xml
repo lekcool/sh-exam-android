@@ -6,7 +6,7 @@
     <dimen name="space_l">16dp</dimen>
     <dimen name="space_xl">24dp</dimen>
     <dimen name="space_xxl">32dp</dimen>
-    <dimen name="nav_icon_size">40dp</dimen>
+    <dimen name="nav_icon_size">32dp</dimen>
     <dimen name="radius">8dp</dimen>
     <dimen name="icon_size">48dp</dimen>
 </resources>

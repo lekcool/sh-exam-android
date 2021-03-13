@@ -122,5 +122,11 @@
             android:paddingHorizontal="@dimen/space_l"
             android:paddingVertical="@dimen/space_m"
             app:layout_constraintTop_toBottomOf="@id/selectAccountInput" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/space_l"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/goalInput"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

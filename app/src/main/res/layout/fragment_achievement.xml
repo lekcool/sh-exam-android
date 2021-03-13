@@ -58,12 +58,18 @@
             android:id="@+id/achievementRecyclerView"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:padding="@dimen/space_l"
+            android:padding="@dimen/space_m"
             android:clipToPadding="false"
             tools:listitem="@layout/item_achievement"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/achievementInfoLayout" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/space_l"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/achievementRecyclerView"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
