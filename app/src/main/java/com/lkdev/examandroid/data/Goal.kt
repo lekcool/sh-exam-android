@@ -24,6 +24,17 @@ data class Goal(
 
     companion object {
         val LIST_MOCK = createMock()
+        val TYPE_LIST_MOCK = createTypeMock()
+
+        private fun createTypeMock(): List<Type> {
+            val list = arrayListOf<Type>()
+            list.add(Type.TRAVEL)
+            list.add(Type.EDUCATION)
+            list.add(Type.INVEST)
+            list.add(Type.CLOTHING)
+            list.add(Type.EDUCATION)
+            return list
+        }
 
         private fun createMock(): List<Goal> {
             val list = arrayListOf<Goal>()
@@ -74,6 +85,16 @@ data class Goal(
             }
 
             override fun areContentsTheSame(oldItem: Goal, newItem: Goal): Boolean {
+                return oldItem == newItem
+            }
+        }
+
+        val TYPE_DIFF_CALLBACK = object : DiffUtil.ItemCallback<Type?>() {
+            override fun areItemsTheSame(oldItem: Type, newItem: Type): Boolean {
+                return oldItem == newItem
+            }
+
+            override fun areContentsTheSame(oldItem: Type, newItem: Type): Boolean {
                 return oldItem == newItem
             }
         }

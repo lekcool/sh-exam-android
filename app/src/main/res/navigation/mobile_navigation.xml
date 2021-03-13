@@ -28,12 +28,12 @@
         tools:layout="@layout/fragment_achievement" />
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.lkdev.examandroid.ui.ProfileFragment"
+        android:name="com.lkdev.examandroid.ui.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/goalFragment"
-        android:name="com.lkdev.examandroid.ui.GoalFragment"
+        android:name="com.lkdev.examandroid.ui.goal.AddGoalFragment"
         android:label="fragment_goal"
-        tools:layout="@layout/fragment_goal" />
+        tools:layout="@layout/fragment_goal_add" />
 </navigation>

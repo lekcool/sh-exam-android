@@ -10,6 +10,7 @@ import androidx.core.text.buildSpannedString
 import androidx.core.text.scale
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lkdev.examandroid.R
 import kotlinx.android.synthetic.main.fragment_home.view.*
@@ -32,9 +33,9 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        view.findViewById<View>(R.id.text_home).setOnClickListener {
-//            App.mSocket?.emit("new-notification")
-//        }
+        view.newGoalButton.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_home_to_goalFragment)
+        }
 
         val goalAdapter = GoalAdapter()
         view.goalRecyclerView.apply {
@@ -49,7 +50,9 @@ class HomeFragment : Fragment() {
                 append("All Saving ")
                 bold {
                     scale(2F) {
-                        append(NumberFormat.getInstance().format(it.sumBy { goal -> goal.currentGoal }))
+                        append(
+                            NumberFormat.getInstance().format(it.sumBy { goal -> goal.currentGoal })
+                        )
                     }
                 }
                 append(" THB")

@@ -1,4 +1,4 @@
-package com.lkdev.examandroid.ui
+package com.lkdev.examandroid.ui.profile
 
 import androidx.lifecycle.ViewModel
 

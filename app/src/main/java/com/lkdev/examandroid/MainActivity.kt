@@ -35,15 +35,21 @@ class MainActivity : AppCompatActivity(), Emitter.Listener {
         mSocket = App.mSocket
 
         mSocket?.on(Socket.EVENT_CONNECT) {
-            Log.d("new-notification", "EVENT_CONNECT args: $it")
+            runOnUiThread {
+                Log.d("MainActivity", "EVENT_CONNECT args: ${it.firstOrNull()}")
+            }
         }
 
         mSocket?.on(Socket.EVENT_CONNECT_ERROR) {
-            Log.e("new-notification", "EVENT_CONNECT_ERROR args: ${it.first()}")
+            runOnUiThread {
+                Log.e("MainActivity", "EVENT_CONNECT_ERROR args: ${it.firstOrNull()}")
+            }
         }
 
         mSocket?.on(Socket.EVENT_DISCONNECT) {
-            Log.d("new-notification", "EVENT_DISCONNECT args: $it")
+            runOnUiThread {
+                Log.d("MainActivity", "EVENT_DISCONNECT args: ${it.firstOrNull()}")
+            }
         }
 
         mSocket?.on("new-notification", this)
@@ -57,8 +63,11 @@ class MainActivity : AppCompatActivity(), Emitter.Listener {
     }
 
     override fun call(vararg args: Any?) {
-        badge++
-        addBadge(badge)
+        runOnUiThread {
+            Log.d("MainActivity", "EVENT_DISCONNECT args: ${args.firstOrNull()}")
+            badge++
+            addBadge(badge)
+        }
     }
 
     private fun addBadge(badge: Int) {

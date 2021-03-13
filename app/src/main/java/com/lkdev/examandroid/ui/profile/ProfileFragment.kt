@@ -1,4 +1,4 @@
-package com.lkdev.examandroid.ui
+package com.lkdev.examandroid.ui.profile
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -8,20 +8,20 @@ import android.view.View
 import android.view.ViewGroup
 import com.lkdev.examandroid.R
 
-class GoalFragment : Fragment() {
+class ProfileFragment : Fragment() {
 
-    private lateinit var viewModel: GoalViewModel
+    private lateinit var viewModel: ProfileViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_goal, container, false)
+        return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(GoalViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
         // TODO: Use the ViewModel
     }
 }
