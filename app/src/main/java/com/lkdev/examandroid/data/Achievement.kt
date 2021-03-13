@@ -14,7 +14,7 @@ data class Achievement(
         private fun createMock(): List<Achievement> {
             val list = arrayListOf<Achievement>()
             for (i in 1..8) {
-                list.add(Achievement(i, "Achievement", R.drawable.ic_outline_emoji_events))
+                list.add(Achievement(i, "Achievement", R.drawable.ic_achievement))
             }
             return list
         }

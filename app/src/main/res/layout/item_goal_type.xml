@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="10dp"
-    android:layout_margin="@dimen/space_m">
+    android:layout_margin="@dimen/space_m"
+    app:cardCornerRadius="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -28,8 +28,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:padding="@dimen/space_m"
                 android:adjustViewBounds="true"
-                android:src="@drawable/ic_outline_emoji_events" />
+                android:src="@drawable/ic_travel"
+                app:tint="@color/primary" />
 
             <TextView
                 android:id="@+id/titleText"

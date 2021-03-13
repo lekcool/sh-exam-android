@@ -24,7 +24,8 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:adjustViewBounds="true"
-            android:src="@drawable/ic_outline_emoji_events" />
+            android:padding="@dimen/space_m"
+            android:src="@drawable/ic_achievement" />
 
         <TextView
             android:id="@+id/achievementText"

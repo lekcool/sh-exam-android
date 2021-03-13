@@ -1,5 +1,6 @@
 package com.lkdev.examandroid.ui.home
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import com.lkdev.examandroid.data.Goal
 import com.lkdev.examandroid.data.Status
 import com.lkdev.examandroid.data.Type
 import kotlinx.android.synthetic.main.item_goal.view.*
+import java.util.*
 
 class GoalAdapter : ListAdapter<Goal, GoalViewHolder>(Goal.DIFF_CALLBACK) {
 
@@ -26,11 +28,12 @@ class GoalAdapter : ListAdapter<Goal, GoalViewHolder>(Goal.DIFF_CALLBACK) {
 }
 
 class GoalViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    @SuppressLint("DefaultLocale")
     fun bind(item: Goal) {
         itemView.detailText.text = item.detail
         itemView.goalText.text = item.getGoalFormat()
         itemView.currentGoalText.text = item.getCurrentGoalFormat()
-        itemView.statusText.text = item.status.name
+        itemView.statusText.text = item.status.name.toLowerCase().capitalize()
         itemView.dateText.text = item.date
 
         itemView.progressBar.apply {
@@ -45,10 +48,10 @@ class GoalViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     private fun getIcon(type: Type): Int {
         return when (type) {
-            Type.TRAVEL -> R.drawable.ic_outline_emoji_events
-            Type.EDUCATION -> R.drawable.ic_outline_account_balance_wallet
-            Type.INVEST -> R.drawable.ic_outline_home
-            Type.CLOTHING -> R.drawable.ic_outline_account_circle
+            Type.TRAVEL -> R.drawable.ic_travel
+            Type.EDUCATION -> R.drawable.ic_education
+            Type.INVEST -> R.drawable.ic_invest
+            Type.CLOTHING -> R.drawable.ic_clothing
         }
     }
 

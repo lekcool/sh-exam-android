@@ -21,7 +21,8 @@
             android:layout_width="@dimen/icon_size"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            android:src="@drawable/ic_outline_emoji_events"
+            android:src="@drawable/ic_travel"
+            android:padding="@dimen/space_m"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tint="@color/primary" />

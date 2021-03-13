@@ -12,7 +12,7 @@ data class AchievementInfo(
         val MOCK = AchievementInfo(
             id = 1,
             level = 2,
-            icon = R.drawable.ic_outline_emoji_events,
+            icon = R.drawable.ic_achievement_star,
             achievements = Achievement.LIST_MOCK
         )
     }
