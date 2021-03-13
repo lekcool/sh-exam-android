@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import io.socket.client.Socket
@@ -15,6 +13,10 @@ class MainActivity : AppCompatActivity(), Emitter.Listener {
 
     private var mSocket: Socket? = null
 
+    private var badge = 0
+
+    private lateinit var navView: BottomNavigationView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -23,16 +25,9 @@ class MainActivity : AppCompatActivity(), Emitter.Listener {
     }
 
     private fun init() {
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        navView = findViewById(R.id.nav_view)
 
         val navController = findNavController(R.id.nav_host_fragment)
-
-//        val appBarConfiguration = AppBarConfiguration(
-//            setOf(
-//                R.id.navigation_home, R.id.navigation_wallet, R.id.navigation_achievement
-//            )
-//        )
-//        setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
 
@@ -40,12 +35,11 @@ class MainActivity : AppCompatActivity(), Emitter.Listener {
         mSocket = App.mSocket
 
         mSocket?.on(Socket.EVENT_CONNECT) {
-            mSocket?.connected()
             Log.d("new-notification", "EVENT_CONNECT args: $it")
         }
 
         mSocket?.on(Socket.EVENT_CONNECT_ERROR) {
-            Log.d("new-notification", "EVENT_CONNECT_ERROR args: $it")
+            Log.e("new-notification", "EVENT_CONNECT_ERROR args: ${it.first()}")
         }
 
         mSocket?.on(Socket.EVENT_DISCONNECT) {
@@ -63,6 +57,13 @@ class MainActivity : AppCompatActivity(), Emitter.Listener {
     }
 
     override fun call(vararg args: Any?) {
-        Log.d("new-notification", "args: $args")
+        badge++
+        addBadge(badge)
+    }
+
+    private fun addBadge(badge: Int) {
+        navView.getOrCreateBadge(R.id.navigation_profile).apply {
+            number = badge
+        }
     }
 }

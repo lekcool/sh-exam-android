@@ -1,4 +1,4 @@
-package com.lkdev.examandroid.ui.notifications
+package com.lkdev.examandroid.ui.wallet
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.lkdev.examandroid.R
 
-class AchievementFragment : Fragment() {
+class WalletFragment : Fragment() {
 
-    private lateinit var notificationsViewModel: NotificationsViewModel
+    private lateinit var walletViewModel: WalletViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        notificationsViewModel =
-                ViewModelProvider(this).get(NotificationsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_achievement, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
-        notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
+        walletViewModel =
+                ViewModelProvider(this).get(WalletViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_wallet, container, false)
+        val textView: TextView = root.findViewById(R.id.text_dashboard)
+        walletViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

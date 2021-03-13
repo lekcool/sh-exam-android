@@ -17,17 +17,17 @@
 
     <fragment
         android:id="@+id/navigation_wallet"
-        android:name="com.lkdev.examandroid.ui.dashboard.WalletFragment"
+        android:name="com.lkdev.examandroid.ui.wallet.WalletFragment"
         android:label="@string/title_wallet"
         tools:layout="@layout/fragment_wallet" />
 
     <fragment
         android:id="@+id/navigation_achievement"
-        android:name="com.lkdev.examandroid.ui.notifications.AchievementFragment"
+        android:name="com.lkdev.examandroid.ui.achievement.AchievementFragment"
         android:label="@string/title_achievement"
         tools:layout="@layout/fragment_achievement" />
     <fragment
-        android:id="@+id/profileFragment"
+        android:id="@+id/navigation_profile"
         android:name="com.lkdev.examandroid.ui.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />

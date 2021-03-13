@@ -7,15 +7,18 @@ import java.net.URISyntaxException
 
 class App : Application() {
 
-    init {
-        mSocket = try {
-            IO.socket("https://px-socket-api.herokuapp.com")
-        } catch (e: URISyntaxException) {
-            throw e
-        }
-    }
-
     companion object {
         var mSocket: Socket? = null
+            get() {
+                synchronized(this) {
+                    if (field == null) {
+                        field = IO.socket("https://px-socket-api.herokuapp.com", IO.Options.builder()
+                            .setReconnectionAttempts(3)
+                            .setReconnectionDelay(3000)
+                            .build())
+                    }
+                }
+                return field
+            }
     }
 }
